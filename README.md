@@ -5,6 +5,7 @@
 
 [![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com)
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![Vercel](https://img.shields.io/badge/Vercel-Deployed-black?style=for-the-badge&logo=vercel)](https://vercel.com)
 [![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
 [![SEBI Compliant](https://img.shields.io/badge/SEBI-Advisory_Grounded-0F4C81?style=for-the-badge)](https://www.sebi.gov.in)
 [![Hackathon](https://img.shields.io/badge/Sangyan-Investor_Resilience_Hackathon-22C55E?style=for-the-badge)](https://sangyan.copsiitbhu.co.in/)
@@ -102,6 +103,23 @@ cd frontend
 python -m http.server 3000
 ```
 Open **`http://localhost:3000`** in your browser!
+
+---
+
+## ☁️ Deploying on Vercel (1-Click Free Hosting)
+
+This repository is already configured with `vercel.json` and Python Serverless functions (`api/index.py`).
+
+### Steps to Deploy:
+1. Go to [vercel.com](https://vercel.com) and click **"Add New" ➔ "Project"**.
+2. Select your GitHub repository: **`avijiitt/suraksha`**.
+3. Leave all default settings as they are (**Root Directory**: `./`).
+4. Click **Deploy**! 🚀
+
+Vercel will automatically:
+- Serve all frontend screens (`/`, `/input.html`, `/result.html`, `/report.html`, `/how-it-works.html`).
+- Deploy the FastAPI backend as Serverless Functions (`/analyze`, `/report`, `/health`).
+- Auto-route without any CORS setup needed!
 
 ---
 

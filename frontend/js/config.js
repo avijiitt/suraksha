@@ -1,15 +1,16 @@
 /**
  * ============================================================
- * Sangyan Investor Shield - Configuration
+ * Sangyan Investor Shield - Configuration (Vercel & Local Ready)
  * ============================================================
  * 
- * Change API_BASE to your deployed backend or local server URL.
- * Example for local FastAPI: "http://localhost:8000"
- * Example for Render: "https://your-backend-app.onrender.com"
+ * Auto-detects environment:
+ * - Localhost (port 3000) -> calls http://localhost:8000
+ * - Vercel / Production    -> calls same-origin serverless API (window.location.origin)
  */
 const CONFIG = {
-  // Backend API Base URL (Used when Demo Mode is OFF)
-  API_BASE: "http://localhost:8000",
+  API_BASE: (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") && window.location.port === "3000"
+    ? "http://localhost:8000"
+    : window.location.origin,
 
   // Local storage keys
   STORAGE_KEYS: {
