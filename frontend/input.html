@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+  <title>Verify Message - Bharat Suraksha (संज्ञान)</title>
+  
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-surface text-on-surface">
+
+<div class="app-container">
+
+  <!-- TOP APP BAR -->
+  <header class="sticky top-0 w-full z-40 bg-white/90 backdrop-blur-xl shadow-sm pt-safe">
+    <div class="h-20 px-4 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <a href="index.html" class="w-10 h-10 -ml-1 rounded-full flex items-center justify-center text-[#00355f] hover:bg-gray-100">
+          <span class="material-symbols-outlined text-[24px]">arrow_back</span>
+        </a>
+        <img src="assets/logo.svg" alt="Bharat Shield Logo" class="h-8 w-8 shrink-0"/>
+        <div class="flex flex-col ml-1">
+          <span class="text-base font-bold text-[#00355f] leading-tight">Verify Scam</span>
+          <span class="text-xs text-gray-500">संदेश की जांच करें</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button id="header-lang-btn" class="min-h-[40px] px-3 py-1 bg-[#e2e7ff] rounded-full flex items-center justify-center text-[#00355f] text-sm font-semibold shadow-sm">
+          अ / A
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN SCANNER CONTENT -->
+  <main class="flex-1 flex flex-col px-4 py-3 gap-4 pb-28">
+
+    <!-- Top Guidance Tile -->
+    <div class="flex items-center gap-3 bg-[#f2f3ff] p-4 rounded-2xl shadow-sm">
+      <div class="w-12 h-12 rounded-full bg-[#d2e4ff] flex items-center justify-center shrink-0">
+        <span class="material-symbols-outlined text-[#00355f] text-[28px] icon-filled">security</span>
+      </div>
+      <div class="flex flex-col min-w-0">
+        <span class="text-base font-bold text-[#00355f] leading-tight">Paste the message or link</span>
+        <span class="text-xs text-gray-600 leading-snug">Copied from WhatsApp, Telegram, SMS, or YouTube</span>
+      </div>
+    </div>
+
+    <!-- Error message banner (Shown if API or validation fails) -->
+    <div id="input-error-msg" class="hidden p-3 bg-red-100 border border-red-300 text-red-800 rounded-xl text-xs font-semibold"></div>
+
+    <!-- Main Input Form Card -->
+    <div class="flex flex-col bg-white rounded-2xl p-4 shadow-sm gap-4 border border-gray-100">
+
+      <!-- Text Input Header + Quick Paste Button -->
+      <div class="flex flex-col gap-1.5">
+        <div class="flex items-center justify-between">
+          <label class="text-sm font-bold text-[#00355f] flex items-center gap-1.5" for="scam-message-input">
+            <span class="material-symbols-outlined text-[20px] text-[#0f4c81]">chat</span>
+            Message Content (संदेश)
+          </label>
+
+          <!-- Clipboard Paste Helper -->
+          <button id="clipboard-paste-btn" type="button" class="min-h-[38px] px-3 bg-[#d2e4ff] text-[#001c37] active:scale-95 transition-transform rounded-lg flex items-center gap-1.5 text-xs font-bold shadow-sm">
+            <span class="material-symbols-outlined text-[16px]">content_paste</span>
+            <span>Paste from Clipboard</span>
+          </button>
+        </div>
+
+        <!-- Textarea -->
+        <div class="relative w-full rounded-xl bg-[#f2f3ff] focus-within:bg-white focus-within:ring-2 focus-within:ring-[#0f4c81] transition-all border border-gray-200">
+          <textarea id="scam-message-input" rows="5" class="w-full bg-transparent p-3 text-sm text-[#131b2e] placeholder:text-gray-400 focus:outline-none resize-none leading-relaxed" placeholder="Paste the WhatsApp/Telegram message here (e.g. 'Guaranteed 50% profit in 2 days! Join VIP group...')"></textarea>
+          
+          <div class="flex items-center justify-between px-3 pb-2 pt-1 border-t border-gray-100/50">
+            <span id="char-hint" class="text-xs text-gray-400">0 characters</span>
+            <button id="clear-text-btn" type="button" class="hidden text-xs text-red-600 font-semibold px-2 py-0.5 rounded hover:bg-red-50">Clear</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Voice Input Pill Button -->
+      <div class="flex flex-col">
+        <button id="voice-record-btn" type="button" class="w-full min-h-[50px] px-4 bg-[#e2e7ff] text-[#00355f] rounded-xl flex items-center justify-center gap-2 transition-all shadow-sm">
+          <span class="w-7 h-7 rounded-full bg-[#d2e4ff] flex items-center justify-center">
+            <span class="material-symbols-outlined text-[#00355f] text-[18px]">mic</span>
+          </span>
+          <span class="text-sm font-bold">Tap to Speak</span>
+          <span class="text-xs text-gray-600 font-normal">(बोलकर बताएं)</span>
+        </button>
+
+        <div id="listening-indicator" class="hidden flex items-center justify-center gap-2 mt-2 py-1 px-3 bg-[#7cf994] text-[#007230] rounded-full self-center">
+          <span class="inline-block w-2.5 h-2.5 rounded-full bg-[#006e2d] animate-ping"></span>
+          <span class="text-xs font-bold">Listening... Speak now</span>
+        </div>
+      </div>
+
+      <!-- Optional Link Input -->
+      <div class="flex flex-col gap-1.5">
+        <label class="text-sm font-bold text-[#00355f] flex items-center gap-1.5" for="scam-link-input">
+          <span class="material-symbols-outlined text-[20px] text-[#0f4c81]">link</span>
+          Link (optional)
+        </label>
+        <div class="flex items-center bg-[#f2f3ff] rounded-xl px-3 border border-gray-200 focus-within:bg-white focus-within:ring-2 focus-within:ring-[#0f4c81] transition-all">
+          <span class="material-symbols-outlined text-gray-400 text-[20px] shrink-0 mr-2">public</span>
+          <input id="scam-link-input" type="url" class="w-full min-h-[48px] bg-transparent text-sm text-[#131b2e] placeholder:text-gray-400 focus:outline-none" placeholder="https://t.me/example-group or http://..."/>
+        </div>
+      </div>
+
+      <!-- DEMO MODE TOGGLE SWITCH (Step 4 Requirement) -->
+      <div class="p-3 bg-amber-50 rounded-xl border border-amber-200 flex flex-col gap-1.5">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-1.5 text-amber-900 font-bold text-xs">
+            <span class="material-symbols-outlined text-[18px] text-amber-700">science</span>
+            <span>Demo Mode (ऑफ़लाइन परीक्षण)</span>
+          </div>
+          <label class="relative inline-flex items-center cursor-pointer">
+            <input type="checkbox" id="demo-mode-checkbox" class="sr-only peer" checked>
+            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#006e2d]"></div>
+          </label>
+        </div>
+        <p class="text-[11px] text-amber-800 leading-snug">
+          Turn on Demo mode if you want to see sample results without a backend.
+        </p>
+      </div>
+
+      <!-- Primary Action: Check Now Button (Step 3 Hook) -->
+      <div class="pt-1">
+        <button id="check-scam-btn" type="button" class="w-full min-h-[56px] px-6 bg-[#0f4c81] hover:bg-[#00355f] text-white rounded-xl flex items-center justify-center gap-2 shadow-md">
+          <span class="material-symbols-outlined text-[24px]">search_check_2</span>
+          <span class="text-lg font-bold tracking-wide">Check Now (जाँच करें)</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Common Fraud Examples Selector -->
+    <div class="flex flex-col gap-2">
+      <span class="text-xs font-bold text-gray-600 px-1">Or check popular scam examples:</span>
+      <div class="flex gap-2 overflow-x-auto pb-1 -mx-4 px-4">
+        <button class="example-chip shrink-0 px-3 py-2 bg-[#eaedff] rounded-xl text-xs font-semibold text-[#00355f] hover:bg-[#e2e7ff] shadow-sm" data-example="Earn Rs 5,000 daily working from home! Like YouTube videos and get paid instantly on Telegram. Contact HR Priya on WhatsApp.">
+          🎥 Video Liking Fraud
+        </button>
+        <button class="example-chip shrink-0 px-3 py-2 bg-[#eaedff] rounded-xl text-xs font-semibold text-[#00355f] hover:bg-[#e2e7ff] shadow-sm" data-example="Guaranteed 200% returns in 7 days with SEBI registered VIP institutional trading portal! Transfer to personal UPI ID to start.">
+          📈 Fake VIP Trading
+        </button>
+        <button class="example-chip shrink-0 px-3 py-2 bg-[#eaedff] rounded-xl text-xs font-semibold text-[#00355f] hover:bg-[#e2e7ff] shadow-sm" data-example="Bumper Diwali Jackpot Call! Guaranteed 300% profit in 5 trading days. Daily sure-shot intraday tips. Limited seats available!">
+          ⚡ Electricity / Jackpot Alert
+        </button>
+        <button class="example-chip shrink-0 px-3 py-2 bg-[#eaedff] rounded-xl text-xs font-semibold text-[#00355f] hover:bg-[#e2e7ff] shadow-sm" data-example="Nifty index funds track the top 50 companies passively. Regular SIP through SEBI registered platforms helps build long term discipline.">
+          ✅ Safe Index Fund
+        </button>
+      </div>
+    </div>
+
+    <!-- BHARAT-FIRST PRIVACY NOTE (Step 6 Requirement) -->
+    <div class="flex items-start gap-3 bg-white p-4 rounded-2xl shadow-sm border border-gray-100">
+      <div class="w-8 h-8 rounded-full bg-[#7cf994] text-[#007230] flex items-center justify-center shrink-0 mt-0.5">
+        <span class="material-symbols-outlined text-[18px] icon-filled">verified_user</span>
+      </div>
+      <div class="flex flex-col gap-0.5 text-xs text-gray-600 leading-relaxed">
+        <span class="font-bold text-[#131b2e] text-sm">Safe & 100% Private (गोपनीय व सुरक्षित)</span>
+        <p>• <strong>Hum aapke SMS, OTP ya contacts access nahi karte.</strong> (We do not access your SMS, calls, or contacts)</p>
+        <p>• <strong>Yeh app investment advice nahi deta.</strong> Your queries are checked anonymously without saving personal data.</p>
+      </div>
+    </div>
+
+    <!-- Back to Home Button -->
+    <a href="index.html" class="w-full min-h-[48px] rounded-xl bg-gray-100 hover:bg-gray-200 text-[#00355f] text-sm font-semibold flex items-center justify-center gap-1.5 transition-colors">
+      <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+      <span>Back to Home (वापस जाएं)</span>
+    </a>
+
+  </main>
+
+  <!-- BOTTOM NAVIGATION BAR -->
+  <nav class="fixed bottom-0 max-w-[480px] w-full z-40 pb-safe bg-white/95 backdrop-blur-xl border-t border-gray-200">
+    <div class="flex justify-around items-center h-16 px-2">
+      <a href="index.html" class="flex flex-col items-center justify-center text-gray-500 hover:text-[#00355f]">
+        <span class="material-symbols-outlined text-[24px]">home</span>
+        <span class="text-[12px]">Home</span>
+      </a>
+      <a href="input.html" class="flex flex-col items-center justify-center text-[#0f4c81] font-bold">
+        <span class="material-symbols-outlined text-[24px]">verified_user</span>
+        <span class="text-[12px]">Verify</span>
+      </a>
+      <a href="how-it-works.html" class="flex flex-col items-center justify-center text-gray-500 hover:text-[#00355f]">
+        <span class="material-symbols-outlined text-[24px]">shield</span>
+        <span class="text-[12px]">Advisories</span>
+      </a>
+      <a href="report.html" class="flex flex-col items-center justify-center text-gray-500 hover:text-[#00355f]">
+        <span class="material-symbols-outlined text-[24px]">flag</span>
+        <span class="text-[12px]">Report</span>
+      </a>
+    </div>
+  </nav>
+
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/demo-data.js"></script>
+<script src="js/api.js"></script>
+<script src="js/main.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    MainApp.initInputPage();
+  });
+</script>
+</body>
+</html>

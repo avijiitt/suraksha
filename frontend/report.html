@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+  <title>Report Scam - Bharat Suraksha (संज्ञान)</title>
+  
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-surface text-on-surface">
+
+<div class="app-container">
+
+  <!-- TOP APP BAR -->
+  <header class="sticky top-0 w-full z-40 bg-white/90 backdrop-blur-xl shadow-sm pt-safe">
+    <div class="h-20 px-4 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <a href="index.html" class="w-10 h-10 -ml-1 rounded-full flex items-center justify-center text-[#00355f] hover:bg-gray-100">
+          <span class="material-symbols-outlined text-[24px]">arrow_back</span>
+        </a>
+        <img src="assets/logo.svg" alt="Bharat Shield Logo" class="h-8 w-8 shrink-0"/>
+        <div class="flex flex-col ml-1">
+          <span class="text-base font-bold text-[#00355f] leading-tight">Report Fraud</span>
+          <span class="text-xs text-gray-500">धोखाधड़ी रिपोर्ट करें</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button id="header-lang-btn" class="min-h-[40px] px-3 py-1 bg-[#e2e7ff] rounded-full flex items-center justify-center text-[#00355f] text-sm font-semibold shadow-sm">
+          अ / A
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN REPORT CONTENT -->
+  <main class="flex-1 flex flex-col px-4 py-3 gap-4 pb-28">
+
+    <!-- Reassuring Header Banner -->
+    <div class="bg-[#e2e7ff] rounded-2xl p-4 shadow-sm relative overflow-hidden">
+      <div class="flex items-start gap-3">
+        <div class="w-12 h-12 rounded-full bg-[#00355f] flex items-center justify-center text-white shrink-0 shadow-sm">
+          <span class="material-symbols-outlined text-[26px] icon-filled">shield_with_heart</span>
+        </div>
+        <div class="flex flex-col min-w-0">
+          <h1 class="text-xl font-bold text-[#00355f] tracking-tight">Report This Scam</h1>
+          <p class="text-xs font-semibold text-[#0f4c81]">धोखाधड़ी रिपोर्ट करें</p>
+          <p class="text-xs text-gray-700 mt-1 leading-relaxed">
+            Share details to help us improve scam detection. Do not share passwords, OTP, or sensitive personal financial information.
+          </p>
+        </div>
+      </div>
+      <div class="mt-3 flex items-center gap-2 bg-white px-3 py-1.5 rounded-lg shadow-sm">
+        <span class="material-symbols-outlined text-[#006e2d] text-[18px] icon-filled">verified</span>
+        <span class="text-xs font-semibold text-[#131b2e]">Anonymous & safe citizen reporting</span>
+      </div>
+    </div>
+
+    <!-- Error message box -->
+    <div id="report-error-msg" class="hidden p-3 bg-red-100 border border-red-300 text-red-800 rounded-xl text-xs font-semibold"></div>
+
+    <!-- REPORT FORM CARD (Step 5 Requirement) -->
+    <form id="scam-report-form" class="bg-white rounded-2xl p-4 shadow-sm space-y-4 border border-gray-100">
+      
+      <!-- Field 1: Your Name (Optional) -->
+      <div class="space-y-1">
+        <div class="flex items-center justify-between">
+          <label class="text-xs font-bold text-[#00355f] flex items-center gap-1.5" for="reporter-name">
+            <span class="material-symbols-outlined text-gray-500 text-[18px]">person</span>
+            <span>Your name (optional)</span>
+          </label>
+          <span class="text-xs text-gray-400">ऐच्छिक</span>
+        </div>
+        <input id="reporter-name" type="text" placeholder="e.g. Rahul Sharma" class="w-full h-12 px-3.5 bg-[#f2f3ff] rounded-xl text-sm text-[#131b2e] placeholder:text-gray-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0f4c81] border border-gray-200 transition-all"/>
+      </div>
+
+      <!-- Field 2: City / Town -->
+      <div class="space-y-1">
+        <label class="text-xs font-bold text-[#00355f] flex items-center gap-1.5" for="reporter-city">
+          <span class="material-symbols-outlined text-gray-500 text-[18px]">location_on</span>
+          <span>City / Town (शहर/कस्बा)</span>
+        </label>
+        <input id="reporter-city" type="text" placeholder="e.g. Indore, Kanpur, Patna" class="w-full h-12 px-3.5 bg-[#f2f3ff] rounded-xl text-sm text-[#131b2e] placeholder:text-gray-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0f4c81] border border-gray-200 transition-all"/>
+      </div>
+
+      <!-- Field 3: Where did you see this? -->
+      <div class="space-y-1">
+        <label class="text-xs font-bold text-[#00355f] flex items-center gap-1.5" for="scam-source">
+          <span class="material-symbols-outlined text-gray-500 text-[18px]">visibility</span>
+          <span>Where did you see this? (यह कहाँ दिखा?) *</span>
+        </label>
+        <div class="relative">
+          <select id="scam-source" required class="w-full h-12 pl-3.5 pr-10 bg-[#f2f3ff] rounded-xl text-sm text-[#131b2e] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0f4c81] border border-gray-200 appearance-none">
+            <option value="" disabled selected>Select platform or source</option>
+            <option value="whatsapp">WhatsApp Group / DM</option>
+            <option value="telegram">Telegram Channel</option>
+            <option value="youtube">YouTube Video / Comments</option>
+            <option value="instagram_facebook">Instagram / Facebook Ad</option>
+            <option value="sms">SMS / Direct Message</option>
+            <option value="other">Other platform / Website</option>
+          </select>
+          <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none text-[22px]">
+            arrow_drop_down
+          </span>
+        </div>
+      </div>
+
+      <!-- Quick Platform Chips -->
+      <div class="flex flex-wrap gap-1.5">
+        <button type="button" class="source-chip px-3 py-1.5 rounded-full bg-[#f2f3ff] text-xs font-semibold text-gray-700 flex items-center gap-1 active:scale-95 shadow-sm" data-source="whatsapp">
+          <span class="material-symbols-outlined text-[16px] text-green-600">chat</span>
+          <span>WhatsApp</span>
+        </button>
+        <button type="button" class="source-chip px-3 py-1.5 rounded-full bg-[#f2f3ff] text-xs font-semibold text-gray-700 flex items-center gap-1 active:scale-95 shadow-sm" data-source="telegram">
+          <span class="material-symbols-outlined text-[16px] text-blue-600">send</span>
+          <span>Telegram</span>
+        </button>
+        <button type="button" class="source-chip px-3 py-1.5 rounded-full bg-[#f2f3ff] text-xs font-semibold text-gray-700 flex items-center gap-1 active:scale-95 shadow-sm" data-source="sms">
+          <span class="material-symbols-outlined text-[16px] text-amber-600">sms</span>
+          <span>SMS</span>
+        </button>
+        <button type="button" class="source-chip px-3 py-1.5 rounded-full bg-[#f2f3ff] text-xs font-semibold text-gray-700 flex items-center gap-1 active:scale-95 shadow-sm" data-source="instagram_facebook">
+          <span class="material-symbols-outlined text-[16px] text-pink-600">campaign</span>
+          <span>Social Media</span>
+        </button>
+      </div>
+
+      <!-- Field 4: Message or Link -->
+      <div class="space-y-1">
+        <label class="text-xs font-bold text-[#00355f] flex items-center gap-1.5" for="scam-content">
+          <span class="material-symbols-outlined text-gray-500 text-[18px]">notes</span>
+          <span>Message or link (संदेश या लिंक) *</span>
+        </label>
+        <textarea id="scam-content" rows="4" required class="w-full p-3.5 bg-[#f2f3ff] rounded-xl text-xs text-[#131b2e] placeholder:text-gray-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#0f4c81] border border-gray-200 resize-none leading-relaxed" placeholder="Paste fraudulent WhatsApp text, URL, phone number or trading group invite here..."></textarea>
+      </div>
+
+      <!-- Security Check Affirmation -->
+      <div class="bg-[#f2f3ff] rounded-xl p-3 flex items-start gap-2 border border-gray-200">
+        <input type="checkbox" id="confirm-no-otp" required checked class="mt-0.5 w-4 h-4 rounded text-[#00355f] accent-[#00355f] cursor-pointer"/>
+        <label for="confirm-no-otp" class="text-xs text-gray-700 leading-snug cursor-pointer select-none">
+          I confirm this submission contains no private banking passwords, PINs, or confidential personal IDs.
+        </label>
+      </div>
+
+      <!-- Action Buttons (Step 2 & 5 Navigation: Submit / Cancel) -->
+      <div class="pt-2 space-y-2.5">
+        <button id="submit-report-btn" type="submit" class="w-full h-14 rounded-xl bg-[#00355f] hover:bg-[#0f4c81] text-white font-bold text-base flex items-center justify-center gap-2 shadow-md">
+          <span class="material-symbols-outlined text-[24px]">send</span>
+          <span>Submit Report (रिपोर्ट जमा करें)</span>
+        </button>
+
+        <button id="cancel-report-btn" type="button" class="w-full h-12 rounded-xl bg-gray-100 hover:bg-gray-200 text-[#00355f] font-semibold text-sm flex items-center justify-center gap-1.5 transition-colors">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+          <span>Cancel (रद्द करें)</span>
+        </button>
+      </div>
+
+    </form>
+
+    <!-- Community Network Note -->
+    <div class="bg-[#f2f3ff] rounded-2xl p-4 shadow-sm flex items-center gap-3 border border-gray-100">
+      <div class="w-10 h-10 rounded-full bg-[#7cf994] text-[#007230] flex items-center justify-center shrink-0">
+        <span class="material-symbols-outlined text-[22px]">groups</span>
+      </div>
+      <div class="flex flex-col text-xs text-gray-700">
+        <span class="font-bold text-[#131b2e]">Community Protection Network</span>
+        <span>Over 14,200 investor alerts generated this week from community tips across Bharat.</span>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- SUCCESS MODAL OVERLAY (Step 5 Requirement) -->
+  <div id="success-overlay" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl w-full max-w-sm p-6 shadow-2xl text-center space-y-4">
+      <div class="w-16 h-16 rounded-full bg-[#7cf994] text-[#007230] flex items-center justify-center mx-auto shadow-sm">
+        <span class="material-symbols-outlined text-[36px] icon-filled">check_circle</span>
+      </div>
+      <div class="space-y-1">
+        <h2 class="text-xl font-bold text-[#00355f]">Report Submitted. Thank you!</h2>
+        <p class="text-xs font-bold text-[#006e2d]">रिपोर्ट सफलतापूर्वक दर्ज की गई</p>
+        <p class="text-xs text-gray-600 pt-1 leading-relaxed">
+          Dhanyawad! Your report helps protect thousands of fellow savers across India from cyber fraud.
+        </p>
+      </div>
+      <div class="text-xs text-gray-400">
+        Returning to Home screen in 2 seconds...
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM NAVIGATION BAR -->
+  <nav class="fixed bottom-0 max-w-[480px] w-full z-40 pb-safe bg-white/95 backdrop-blur-xl border-t border-gray-200">
+    <div class="flex justify-around items-center h-16 px-2">
+      <a href="index.html" class="flex flex-col items-center justify-center text-gray-500 hover:text-[#00355f]">
+        <span class="material-symbols-outlined text-[24px]">home</span>
+        <span class="text-[12px]">Home</span>
+      </a>
+      <a href="input.html" class="flex flex-col items-center justify-center text-gray-500 hover:text-[#00355f]">
+        <span class="material-symbols-outlined text-[24px]">verified_user</span>
+        <span class="text-[12px]">Verify</span>
+      </a>
+      <a href="how-it-works.html" class="flex flex-col items-center justify-center text-gray-500 hover:text-[#00355f]">
+        <span class="material-symbols-outlined text-[24px]">shield</span>
+        <span class="text-[12px]">Advisories</span>
+      </a>
+      <a href="report.html" class="flex flex-col items-center justify-center text-[#0f4c81] font-bold">
+        <span class="material-symbols-outlined text-[24px]">flag</span>
+        <span class="text-[12px]">Report</span>
+      </a>
+    </div>
+  </nav>
+
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/demo-data.js"></script>
+<script src="js/api.js"></script>
+<script src="js/main.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    MainApp.initReportPage();
+  });
+</script>
+</body>
+</html>

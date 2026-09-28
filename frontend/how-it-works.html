@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+  <title>How it works - Bharat Suraksha (संज्ञान)</title>
+  
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-surface text-on-surface">
+
+<div class="app-container">
+
+  <!-- TOP APP BAR -->
+  <header class="sticky top-0 w-full z-40 bg-white/90 backdrop-blur-xl shadow-sm pt-safe">
+    <div class="h-20 px-4 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <a href="index.html" class="w-10 h-10 -ml-1 rounded-full flex items-center justify-center text-[#00355f] hover:bg-gray-100">
+          <span class="material-symbols-outlined text-[24px]">arrow_back</span>
+        </a>
+        <img src="assets/logo.svg" alt="Bharat Shield Logo" class="h-8 w-8 shrink-0"/>
+        <div class="flex flex-col ml-1">
+          <span class="text-base font-bold text-[#00355f] leading-tight">How it works</span>
+          <span class="text-xs text-gray-500">यह कैसे काम करता है</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button id="header-lang-btn" class="min-h-[40px] px-3 py-1 bg-[#e2e7ff] rounded-full flex items-center justify-center text-[#00355f] text-sm font-semibold shadow-sm">
+          अ / A
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN HOW IT WORKS CONTENT -->
+  <main class="flex-1 flex flex-col px-4 py-3 gap-4 pb-28">
+
+    <!-- Top Guidance Box -->
+    <div class="bg-[#eaedff] rounded-2xl p-4 shadow-sm flex items-start gap-3 relative overflow-hidden">
+      <div class="w-12 h-12 rounded-full bg-[#d2e4ff] flex items-center justify-center shrink-0 text-[#00355f] shadow-sm">
+        <span class="material-symbols-outlined text-[28px] icon-filled">elderly</span>
+      </div>
+      <div class="flex flex-col gap-1 z-10">
+        <span class="text-xs font-bold text-[#00355f] tracking-wide uppercase">मार्गदर्शक • Sangyan Guide</span>
+        <h2 class="text-lg font-bold text-[#131b2e]">How it works (यह कैसे काम करता है)</h2>
+        <p class="text-xs text-gray-700 leading-relaxed">
+          3 simple steps to protect your hard-earned money from online frauds and fake tips.
+        </p>
+      </div>
+      <div class="absolute -right-4 -bottom-6 opacity-10 pointer-events-none text-[#00355f]">
+        <span class="material-symbols-outlined text-[100px]">verified_user</span>
+      </div>
+    </div>
+
+    <!-- Step Progression Tracker -->
+    <div class="flex items-center justify-between px-3 py-2 bg-[#f2f3ff] rounded-full">
+      <div class="flex items-center gap-2 pl-2">
+        <span class="material-symbols-outlined text-[#006e2d] text-[20px] icon-filled">task_alt</span>
+        <span class="text-xs font-bold text-[#131b2e]">Easy 3-Step Protection</span>
+      </div>
+      <div class="flex items-center gap-1.5 pr-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-[#00355f]"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-[#00355f]"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-[#00355f]"></span>
+      </div>
+    </div>
+
+    <!-- 3 Step Cards Stack -->
+    <div class="flex flex-col gap-3">
+      
+      <!-- Step 1 -->
+      <div class="bg-white rounded-2xl p-4 shadow-sm flex flex-col gap-2 border border-gray-100">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-[#00355f] text-white font-bold text-sm flex items-center justify-center shadow-sm">
+              1
+            </div>
+            <div class="flex flex-col">
+              <span class="text-xs font-bold text-[#0f4c81]">पहला कदम • Step 1</span>
+              <h3 class="text-sm font-bold text-[#131b2e]">Copy the message or link</h3>
+            </div>
+          </div>
+          <div class="w-9 h-9 rounded-full bg-[#e2e7ff] flex items-center justify-center text-[#00355f]">
+            <span class="material-symbols-outlined text-[20px]">content_copy</span>
+          </div>
+        </div>
+        <p class="text-xs text-gray-600 pl-[48px] leading-relaxed">
+          Copy the suspicious financial tip, guaranteed return offer, or suspicious link from WhatsApp, Telegram, or SMS.
+        </p>
+        <div class="ml-[48px] bg-[#f2f3ff] rounded-lg p-2 flex items-center gap-2 text-[11px] text-gray-500">
+          <span class="material-symbols-outlined text-[16px]">chat</span>
+          <span class="truncate">WhatsApp, Telegram groups & SMS alerts</span>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="bg-white rounded-2xl p-4 shadow-sm flex flex-col gap-2 border border-gray-100">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-[#00355f] text-white font-bold text-sm flex items-center justify-center shadow-sm">
+              2
+            </div>
+            <div class="flex flex-col">
+              <span class="text-xs font-bold text-[#0f4c81]">दूसरा कदम • Step 2</span>
+              <h3 class="text-sm font-bold text-[#131b2e]">Paste and tap 'Check Now'</h3>
+            </div>
+          </div>
+          <div class="w-9 h-9 rounded-full bg-[#e2e7ff] flex items-center justify-center text-[#00355f]">
+            <span class="material-symbols-outlined text-[20px]">content_paste_search</span>
+          </div>
+        </div>
+        <p class="text-xs text-gray-600 pl-[48px] leading-relaxed">
+          Paste it directly into the app search box. We respect your confidentiality: <strong class="text-[#131b2e]">we never read private chats or OTPs.</strong>
+        </p>
+        <div class="ml-[48px] bg-[#7cf994]/40 rounded-lg p-2 flex items-center gap-2 text-[11px] text-[#007230] font-bold">
+          <span class="material-symbols-outlined text-[16px] icon-filled">lock</span>
+          <span>100% Private & Secure Verification</span>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="bg-white rounded-2xl p-4 shadow-sm flex flex-col gap-2 border border-gray-100">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-[#00355f] text-white font-bold text-sm flex items-center justify-center shadow-sm">
+              3
+            </div>
+            <div class="flex flex-col">
+              <span class="text-xs font-bold text-[#0f4c81]">तीसरा कदम • Step 3</span>
+              <h3 class="text-sm font-bold text-[#131b2e]">Get clear guidance in your language</h3>
+            </div>
+          </div>
+          <div class="w-9 h-9 rounded-full bg-[#e2e7ff] flex items-center justify-center text-[#00355f]">
+            <span class="material-symbols-outlined text-[20px] icon-filled">verified_user</span>
+          </div>
+        </div>
+        <p class="text-xs text-gray-600 pl-[48px] leading-relaxed">
+          See instant Red, Orange, or Green risk alerts with straightforward explanations in simple Hindi or English.
+        </p>
+
+        <!-- Traffic Light Signals -->
+        <div class="ml-[48px] grid grid-cols-3 gap-2 pt-1 text-center">
+          <div class="bg-[#7cf994]/30 rounded-xl py-1.5 px-2 flex items-center justify-center gap-1.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#006e2d]"></span>
+            <span class="text-xs font-bold text-[#007230]">Safe</span>
+          </div>
+          <div class="bg-amber-100 rounded-xl py-1.5 px-2 flex items-center justify-center gap-1.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-600"></span>
+            <span class="text-xs font-bold text-amber-900">Caution</span>
+          </div>
+          <div class="bg-red-100 rounded-xl py-1.5 px-2 flex items-center justify-center gap-1.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-red-600"></span>
+            <span class="text-xs font-bold text-red-900">Danger</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Official SEBI / Legal Disclaimer -->
+    <div class="bg-[#f2f3ff] rounded-2xl p-4 shadow-sm flex items-start gap-3 border border-gray-100">
+      <div class="w-8 h-8 rounded-full bg-[#e2e7ff] flex items-center justify-center shrink-0 text-[#00355f] mt-0.5">
+        <span class="material-symbols-outlined text-[20px]">info</span>
+      </div>
+      <div class="flex flex-col text-xs text-gray-600 leading-relaxed">
+        <span class="font-bold text-[#131b2e] text-sm">जरूरी सूचना • Mandatory Disclaimer</span>
+        <p>This app does not give buy/sell advice or market tips. Always verify entities on official regulatory portals like <strong class="text-[#00355f]">SEBI</strong> before investing.</p>
+      </div>
+    </div>
+
+    <!-- Photographic Visual Banner -->
+    <div class="relative w-full h-32 rounded-2xl overflow-hidden shadow-sm">
+      <img class="w-full h-full object-cover" alt="Indian family smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrG2ClSr5PYMP_tu5tibLTelyWN1cgr-DR_qmqQHV_gpyGeF5HonVlKhJXwh8JgRrUwModXRAneZ5ZFP4F1xFHpzZjBbBSWoigEIZxTxeGc0UPakQpYdhxN2TFLAa32LUsyw2BCpbNrv9x1u7Tj0s-CZHuBW9jLxwDjp5jm-i4sNg8yu8aV1rF67Xth0l-3D62Y9Smr_jqM3Hk067SmEfChLaKPWmHu_CzdTCmL9MLtR-0DP7myxk"/>
+      <div class="absolute inset-0 bg-gradient-to-r from-[#00355f]/80 via-[#00355f]/40 to-transparent flex items-center px-4">
+        <span class="text-white text-base font-bold max-w-[200px] leading-tight">
+          Suraksha for you & your family
+        </span>
+      </div>
+    </div>
+
+    <!-- Primary Action: Got It Button (Step 2 Navigation: How It Works -> Input) -->
+    <div class="pt-1">
+      <button id="btn-how-gotit" type="button" class="w-full min-h-[56px] px-6 bg-[#00355f] hover:bg-[#0f4c81] text-white rounded-xl font-bold text-base shadow-md flex items-center justify-center gap-2">
+        <span class="material-symbols-outlined text-[22px]">check_circle</span>
+        <span>Got it (समझ गए)</span>
+      </button>
+      <p class="text-xs text-center text-gray-400 mt-2">
+        Tap anytime to return to the check screen
+      </p>
+    </div>
+
+  </main>
+
+  <!-- BOTTOM NAVIGATION BAR -->
+  <nav class="fixed bottom-0 max-w-[480px] w-full z-40 pb-safe bg-white/95 backdrop-blur-xl border-t border-gray-200">
+    <div class="flex justify-around items-center h-16 px-2">
+      <a href="index.html" class="flex flex-col items-center justify-center text-gray-500 hover:text-[#00355f]">
+        <span class="material-symbols-outlined text-[24px]">home</span>
+        <span class="text-[12px]">Home</span>
+      </a>
+      <a href="input.html" class="flex flex-col items-center justify-center text-gray-500 hover:text-[#00355f]">
+        <span class="material-symbols-outlined text-[24px]">verified_user</span>
+        <span class="text-[12px]">Verify</span>
+      </a>
+      <a href="how-it-works.html" class="flex flex-col items-center justify-center text-[#0f4c81] font-bold">
+        <span class="material-symbols-outlined text-[24px]">shield</span>
+        <span class="text-[12px]">Advisories</span>
+      </a>
+      <a href="report.html" class="flex flex-col items-center justify-center text-gray-500 hover:text-[#00355f]">
+        <span class="material-symbols-outlined text-[24px]">flag</span>
+        <span class="text-[12px]">Report</span>
+      </a>
+    </div>
+  </nav>
+
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/demo-data.js"></script>
+<script src="js/api.js"></script>
+<script src="js/main.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    MainApp.initHowItWorksPage();
+  });
+</script>
+</body>
+</html>

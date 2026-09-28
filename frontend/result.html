@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+  <title>Analysis Result - Bharat Suraksha (संज्ञान)</title>
+  
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-surface text-on-surface">
+
+<div class="app-container">
+
+  <!-- TOP APP BAR -->
+  <header class="sticky top-0 w-full z-40 bg-white/90 backdrop-blur-xl shadow-sm pt-safe">
+    <div class="h-20 px-4 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <a href="input.html" class="w-10 h-10 -ml-1 rounded-full flex items-center justify-center text-[#00355f] hover:bg-gray-100">
+          <span class="material-symbols-outlined text-[24px]">arrow_back</span>
+        </a>
+        <img src="assets/logo.svg" alt="Bharat Shield Logo" class="h-8 w-8 shrink-0"/>
+        <div class="flex flex-col ml-1">
+          <h1 class="text-base font-bold text-[#00355f] leading-tight">Analysis Result</h1>
+          <span class="text-xs text-gray-500">Bharat Suraksha</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button id="header-lang-btn" class="min-h-[40px] px-3 py-1 bg-[#e2e7ff] rounded-full flex items-center justify-center text-[#00355f] text-sm font-semibold shadow-sm">
+          अ / A
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN RESULT CONTENT -->
+  <main class="flex-1 flex flex-col px-4 py-3 gap-4 pb-28">
+
+    <!-- DYNAMIC RISK VERDICT HERO CARD (High = Red, Medium = Orange, Low = Green) -->
+    <div id="result-hero-card" class="mt-2 w-full rounded-2xl bg-red-100 p-6 text-red-900 shadow-sm flex flex-col items-center text-center relative overflow-hidden">
+      <div class="w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-sm mb-2 text-red-600">
+        <span class="material-symbols-outlined text-[36px] icon-filled">warning</span>
+      </div>
+      <span id="result-risk-title" class="text-2xl font-bold text-red-700 tracking-tight">High Risk</span>
+      <span id="result-risk-subtitle" class="text-sm font-semibold text-red-900 mt-0.5">बहुत ज्यादा जोखिम</span>
+      
+      <!-- Pattern Match Pill -->
+      <div id="result-match-pill" class="mt-3 px-4 py-1 bg-white/80 rounded-full flex items-center gap-2 shadow-sm text-xs font-bold text-red-900">
+        <span class="w-2.5 h-2.5 rounded-full bg-red-600 animate-pulse"></span>
+        <span id="result-match-text">95% Scam Match Pattern</span>
+      </div>
+    </div>
+
+    <!-- Reassuring Sangyan Micro-Card -->
+    <div class="bg-[#f2f3ff] rounded-2xl p-3.5 flex items-center gap-3 shadow-sm border border-gray-100">
+      <div class="w-10 h-10 rounded-full bg-[#d2e4ff] flex-shrink-0 flex items-center justify-center text-[#001c37]">
+        <span class="material-symbols-outlined text-[22px]">shield_person</span>
+      </div>
+      <div class="flex flex-col">
+        <span class="text-xs font-bold text-[#00355f]">Digital Elder Advisory (संज्ञान)</span>
+        <span id="result-elder-advisory" class="text-xs text-gray-700 leading-snug">
+          Do not deposit any funds. This scheme violates securities laws.
+        </span>
+      </div>
+    </div>
+
+    <!-- Analyzed Text Quote Snapshot -->
+    <div class="bg-gray-100 rounded-2xl p-4 relative shadow-sm border border-gray-200">
+      <div class="flex items-center justify-between mb-2">
+        <div class="flex items-center gap-1.5 text-gray-500 text-xs font-bold">
+          <span class="material-symbols-outlined text-[16px]">chat</span>
+          <span>Analyzed Message Snippet</span>
+        </div>
+        <span class="text-[11px] font-bold text-red-700 bg-red-100 px-2 py-0.5 rounded-full">Scanned</span>
+      </div>
+      <blockquote id="result-snippet" class="text-xs text-gray-800 italic leading-relaxed pl-1">
+        “Sir, guaranteed 400% profit in 24 hours! Only 3 VIP slots left. Send ₹5,000 on GooglePay now to confirm VIP portfolio access...”
+      </blockquote>
+    </div>
+
+    <!-- EXPLANATION BULLET POINTS (Step 3 Requirement) -->
+    <div class="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex flex-col gap-3">
+      <div class="flex items-center justify-between pb-1 border-b border-gray-100">
+        <h2 class="text-sm font-bold text-[#131b2e] flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[#0f4c81] text-[20px]">fact_check</span>
+          <span>Why this was flagged (जांच विवरण)</span>
+        </h2>
+        <span class="text-xs text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full font-semibold">Key Reasons</span>
+      </div>
+
+      <ul id="result-bullets-list" class="flex flex-col gap-2">
+        <!-- Bullets injected dynamically via main.js -->
+      </ul>
+    </div>
+
+    <!-- Investor Protection Rulebook Card -->
+    <div class="bg-[#f2f3ff] rounded-2xl p-4 flex flex-col gap-2 shadow-sm">
+      <div class="flex items-center gap-1.5 text-[#00355f] text-xs font-bold">
+        <span class="material-symbols-outlined text-[18px]">school</span>
+        <span>Investor Protection Rulebook</span>
+      </div>
+      <p class="text-xs text-gray-700 leading-relaxed">
+        Registered Research Analysts (RA) and Investment Advisers (IA) never collect deposits into private savings accounts or personal UPI handles.
+      </p>
+      <div class="w-full h-28 rounded-xl overflow-hidden mt-1 relative">
+        <img class="w-full h-full object-cover" alt="Indian family reading advisory" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAby_fFasQ23NTS85UdFAWneKxtKpJquN4YIVW8WGIevCBGbKP_Jf9kUP9tFOvlSig2U7oT1634r_1QRbhYaQ86l5Mkg8G0hOHYtxNCpUO0D3I6W-TBoTPoQ1DkhgQkPY7PAxN8bNWjnJudFi7RSzh7SJVbwsPQ1m2nEw0QcsaXuhLGNddOg5mwTr4ST20cz9rCnDIArYR3uHSL5LXztjQvX_iGpHeRIUxt7WxmB71jWoN33aI5q0"/>
+        <div class="absolute inset-0 bg-[#00355f]/20"></div>
+        <div class="absolute bottom-2 left-2 right-2 bg-white/95 backdrop-blur-sm rounded-lg px-2.5 py-1.5 flex items-center justify-between shadow text-xs">
+          <span class="font-bold text-[#00355f]">Need a second opinion?</span>
+          <a href="tel:1930" class="text-red-600 font-bold underline">Helpline: 1930</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROMINENT ACTION BUTTONS (Step 2 Navigation: Result -> Report / SEBI / Home) -->
+    <div class="flex flex-col gap-2.5 pt-2">
+      <!-- 1. Report Scam Button -->
+      <button id="btn-result-report" type="button" class="w-full min-h-[54px] rounded-xl bg-red-600 hover:bg-red-700 text-white font-bold text-base shadow-md flex items-center justify-center gap-2">
+        <span class="material-symbols-outlined text-[22px]">campaign</span>
+        <span data-i18n="reportScamBtn">Report This Scam (धोखाधड़ी रिपोर्ट करें)</span>
+      </button>
+
+      <!-- 2. Open Official SEBI Website (opens sebi.gov.in in new tab) -->
+      <button id="btn-result-sebi" type="button" class="w-full min-h-[54px] rounded-xl bg-[#00355f] hover:bg-[#0f4c81] text-white font-bold text-base shadow-sm flex items-center justify-center gap-2">
+        <span class="material-symbols-outlined text-[22px]">verified</span>
+        <span>Open Official SEBI Website (SEBI जांचें)</span>
+      </button>
+
+      <!-- 3. Back to Home Button -->
+      <button id="btn-result-home" type="button" class="w-full min-h-[50px] rounded-xl bg-gray-100 hover:bg-gray-200 text-[#00355f] font-semibold text-sm flex items-center justify-center gap-1.5 transition-colors">
+        <span class="material-symbols-outlined text-[20px]">arrow_back</span>
+        <span>Back to Safety Home (वापस जाएं)</span>
+      </button>
+    </div>
+
+    <!-- Bottom Statutory Note -->
+    <div class="rounded-2xl bg-white p-4 flex items-start gap-3 shadow-sm border border-gray-100">
+      <div class="w-7 h-7 rounded-full bg-[#7cf994] text-[#007230] flex items-center justify-center flex-shrink-0 mt-0.5">
+        <span class="material-symbols-outlined text-[16px] icon-filled">lock</span>
+      </div>
+      <div class="flex flex-col text-xs text-gray-600">
+        <span class="font-bold text-[#131b2e]">Suraksha Golden Rule</span>
+        <span>Never send money via UPI or share OTP with unknown Telegram/WhatsApp administrators. Government authorities will never ask for personal PINs.</span>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- BOTTOM NAVIGATION BAR -->
+  <nav class="fixed bottom-0 max-w-[480px] w-full z-40 pb-safe bg-white/95 backdrop-blur-xl border-t border-gray-200">
+    <div class="flex justify-around items-center h-16 px-2">
+      <a href="index.html" class="flex flex-col items-center justify-center text-gray-500 hover:text-[#00355f]">
+        <span class="material-symbols-outlined text-[24px]">home</span>
+        <span class="text-[12px]">Home</span>
+      </a>
+      <a href="input.html" class="flex flex-col items-center justify-center text-[#0f4c81] font-bold">
+        <span class="material-symbols-outlined text-[24px]">verified_user</span>
+        <span class="text-[12px]">Verify</span>
+      </a>
+      <a href="how-it-works.html" class="flex flex-col items-center justify-center text-gray-500 hover:text-[#00355f]">
+        <span class="material-symbols-outlined text-[24px]">shield</span>
+        <span class="text-[12px]">Advisories</span>
+      </a>
+      <a href="report.html" class="flex flex-col items-center justify-center text-gray-500 hover:text-[#00355f]">
+        <span class="material-symbols-outlined text-[24px]">flag</span>
+        <span class="text-[12px]">Report</span>
+      </a>
+    </div>
+  </nav>
+
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/demo-data.js"></script>
+<script src="js/api.js"></script>
+<script src="js/main.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    MainApp.initResultPage();
+  });
+</script>
+</body>
+</html>

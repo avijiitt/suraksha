@@ -1,0 +1,99 @@
+/* ============================================================
+   Sangyan - Bharat Investor Safety Shield
+   Global Stylesheet (Tailwind extensions & Mobile-first container)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+
+:root {
+  --primary: #00355f;
+  --primary-container: #0f4c81;
+  --primary-fixed: #d2e4ff;
+  --on-primary: #ffffff;
+  --secondary: #006e2d;
+  --secondary-container: #7cf994;
+  --on-secondary-container: #007230;
+  --tertiary: #522900;
+  --tertiary-fixed: #ffdcc3;
+  --tertiary-container: #733c00;
+  --on-tertiary-container: #ffa658;
+  --error: #ba1a1a;
+  --error-container: #ffdad6;
+  --on-error: #ffffff;
+  --on-error-container: #93000a;
+  --surface: #faf8ff;
+  --surface-container-low: #f2f3ff;
+  --surface-container: #eaedff;
+  --surface-container-high: #e2e7ff;
+  --surface-container-highest: #dae2fd;
+  --surface-container-lowest: #ffffff;
+  --on-surface: #131b2e;
+  --on-surface-variant: #42474f;
+  --outline: #727780;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #f1f4f9;
+  font-family: 'Atkinson Hyperlegible Next', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--on-surface);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Safe Area Insets for Mobile devices */
+.pb-safe { padding-bottom: max(env(safe-area-inset-bottom, 0px), 16px); }
+.pt-safe { padding-top: max(env(safe-area-inset-top, 0px), 8px); }
+
+/* Hide default scrollbars for native app feel */
+::-webkit-scrollbar { display: none; }
+* { -webkit-tap-highlight-color: transparent; }
+
+/* Centered Mobile Frame container on desktop/tablet */
+.app-container {
+  width: 100%;
+  max-width: 480px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background-color: var(--surface);
+  position: relative;
+  box-shadow: 0 10px 40px -10px rgba(0, 30, 60, 0.15);
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 640px) {
+  body {
+    background: linear-gradient(135deg, #e2eaf5 0%, #f4f7fc 100%);
+    padding: 24px 0;
+  }
+  .app-container {
+    min-height: 900px;
+    border-radius: 32px;
+    overflow: hidden;
+    border: 8px solid #1a2536;
+  }
+}
+
+/* Interactive touch buttons */
+button:active, a:active {
+  transform: scale(0.985);
+  transition: transform 0.1s ease;
+}
+
+/* Material Symbols fill utility */
+.icon-filled {
+  font-variation-settings: 'FILL' 1;
+}
+
+/* Toggle Switch Styles for Demo Mode */
+.toggle-checkbox:checked {
+  right: 0;
+  border-color: var(--secondary);
+}
+.toggle-checkbox:checked + .toggle-label {
+  background-color: var(--secondary-container);
+}
